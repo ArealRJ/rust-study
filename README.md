@@ -20,3 +20,19 @@ Cargo.toml 和 Cargo.lock 是 cargo 的核心文件，它的所有活动均基�
 
 - `Cargo.lock` 文件是 cargo 工具根据同一项目的 toml 文件生成的项目依赖详细清单，因此我们一般不用修改它，只需要对着 Cargo.toml 文件撸就行了。
 
+```toml
+[package]
+name = "world_hello"
+version = "0.1.0"
+edition = "2021"
+
+#三种写法
+#1.基于rust官方的crates.io，通关版本来描述
+#2.通过项目源代码git仓库地址指定依赖
+#3.基于本地路径指定依赖
+[dependencies]
+rand = "0.3"
+hammer = { version = "0.5.0"}
+color = { git = "https://github.com/bjz/color-rs" }
+geometry = { path = "crates/geometry" }
+```
